@@ -1,0 +1,13 @@
+<div class="messages">
+    <% if(messages.length > 0) { %>
+        <ul>
+            <% messages.forEach(message => { %>
+                <li><%= message.title %></li>
+                <li><%= message.message %></li>
+                <li><%= message.added %></li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <h1>Be the first to post a message!</h1>
+    <% } %> 
+</div>

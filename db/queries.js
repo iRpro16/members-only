@@ -15,6 +15,7 @@ async function searchUsername(username) {
         SELECT * FROM members 
         WHERE username = $1;
     `
+
     const { rows } = await pool.query(query, [username]);
     return rows;
 }
@@ -29,8 +30,40 @@ async function searchID(id) {
     return rows;
 }
 
+async function upgradeStatus(username) {
+    let query = `
+        UPDATE members 
+        SET status = 'exclusive'
+        WHERE username = $1;
+    `
+
+    const { rows } = await pool.query(query, [username]);
+    return rows;
+}
+
+async function getAllMessages() {
+    let query = `
+        SELECT * FROM messages;
+    `
+    const { rows } = await pool.query(query);
+    return rows;
+}
+
+async function addMessage(title, message, user_id) {
+    let query = `
+        INSERT INTO messages (title, message, user_id)
+        VALUES ($1, $2, $3) RETURNING *;
+    `
+
+    const values = [title, message, user_id];
+    await pool.query(query, values);
+}
+
 module.exports = {
     insertUser,
     searchUsername,
-    searchID
+    searchID,
+    upgradeStatus,
+    getAllMessages,
+    addMessage
 }

@@ -16,7 +16,7 @@ const SQL = `
         id SERIAL PRIMARY KEY,
         title VARCHAR (255) NOT NULL,
         message VARCHAR (255) NOT NULL,
-        added DATE NOT NULL,
+        added TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         user_id INT NOT NULL,
         FOREIGN KEY(user_id)
             REFERENCES members(id)
