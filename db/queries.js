@@ -10,6 +10,27 @@ async function insertUser(firstName, lastName, username, password, status) {
     await pool.query(query, values);
 }
 
+async function searchUsername(username) {
+    let query = `
+        SELECT * FROM members 
+        WHERE username = $1;
+    `
+    const { rows } = await pool.query(query, [username]);
+    return rows;
+}
+
+async function searchID(id) {
+    let query = `
+        SELECT * FROM members
+        WHERE id = $1;
+    `
+
+    const { rows } = await pool.query(query, [id]);
+    return rows;
+}
+
 module.exports = {
-    insertUser
+    insertUser,
+    searchUsername,
+    searchID
 }

@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Home</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+  </head>
 <body>
-  <h1>hello world!</h1>
+  <% if (locals.user) {%>
+    <h1>WELCOME BACK <%= user.username %></h1>
+    <a href="/log-out">LOG OUT</a>
+  <% } else { %>
+    <%- include('login') %>
+  <%}%>
 </body>
 </html>

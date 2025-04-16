@@ -5,8 +5,11 @@ const assetsPath = path.join(__dirname, "public");
 const session = require('express-session');
 const pool = require("./db/pool");
 const passport = require("passport");
-const formRouter = require("./routes/formRouter");
+// Routers
+const signupRouter = require("./routes/signupRouter");
 const indexRouter = require("./routes/indexRouter");
+const loginRouter = require("./routes/loginRouter");
+require("./config/passport")(passport)
 
 // setup
 app.set("views", path.join(__dirname, "views"));
@@ -27,8 +30,10 @@ app.use(session({
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false}));
 
+// routers
 app.use(indexRouter);
-app.use(formRouter);
+app.use(signupRouter);
+app.use(loginRouter);
 
 app.listen(3000, () => {
     console.log("Listening to on PORT: 3000");
