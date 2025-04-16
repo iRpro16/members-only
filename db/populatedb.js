@@ -4,17 +4,23 @@ require('dotenv').config();
 const SQL = `
     CREATE TABLE IF NOT EXISTS members (
         id SERIAL PRIMARY KEY,
-        first_name VARCHAR (255),
-        last_name VARCHAR (255),
-        username VARCHAR (255),
-        password VARCHAR (255),
-        status VARCHAR (255)
+        first_name VARCHAR (255) NOT NULL,
+        last_name VARCHAR (255) NOT NULL,
+        username VARCHAR (255) NOT NULL,
+        password VARCHAR (255) NOT NULL,
+        status VARCHAR (255) NOT NULL,
+        UNIQUE(username)
     );
 
     CREATE TABLE IF NOT EXISTS messages (
         id SERIAL PRIMARY KEY,
-        user_id INT,
-        message VARCHAR (255)
+        title VARCHAR (255) NOT NULL,
+        message VARCHAR (255) NOT NULL,
+        added DATE NOT NULL,
+        user_id INT NOT NULL,
+        FOREIGN KEY(user_id)
+            REFERENCES members(id)
+            ON DELETE CASCADE
     );
 `
 
