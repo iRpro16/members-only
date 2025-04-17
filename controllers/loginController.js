@@ -1,11 +1,11 @@
 const db = require("../db/queries");
 const passport = require('passport');
 
-async function getSignupForm(req, res) {
+async function getLogin(req, res) {
     res.render("login");
 }
 
-function postSignupForm(req, res, next) {
+function postLogin(req, res, next) {
     passport.authenticate("local", {
         successRedirect: "/",
         failureRedirect: "/"
@@ -22,7 +22,7 @@ function getLogout(req, res, next) {
 };
 
 module.exports = {
-    getSignupForm,
-    postSignupForm,
+    getLogin,
+    postLogin,
     getLogout
 }

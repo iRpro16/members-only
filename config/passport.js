@@ -26,6 +26,7 @@ module.exports = function(passport) {
             try {
                 const rows = await db.searchUsername(username);
                 const user = rows[0];
+                
                 if (!user) {
                     return done(null, false, { message: "Incorrect username"});
                 }

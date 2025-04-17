@@ -1,16 +1,9 @@
 const db = require("../db/queries");
-const { body, validationResult } = require("express-validator");
+const { validationResult } = require("express-validator");
 require('dotenv').config();
-
-const validateUser = [
-    body('secret_password')
-        .exists({checkFalsy: true}).withMessage('You must type secret password')
-        .custom((value, {req}) => value == process.env.SECRET_PASS).withMessage("Wrong password"),
-]
 
 async function getRenderIndex(req, res) {
     const messages = await db.getAllMessages();
-    console.log(messages)
     res.render("index", {
         user: req.user,
         messages: messages
@@ -21,28 +14,23 @@ async function getExclusiveForm(req, res) {
     res.render("exclusive");
 }
 
-const postExclusiveForm = [
-    validateUser,
-    async (req, res, next) => {
-        const errors = validationResult(req);
-        try {
-            // If errors array is not empty
-            if (!errors.isEmpty()) {
-                return res.status(400).render("exclusive", {
-                    errors: errors.array(),
-                });
-            }
-
-            // If errors array is empty
-            const user = req.user;
-            await db.upgradeStatus(user.username, 'exclusive');
-            res.redirect("/");
-        } catch(error) {
-            console.error(error);
-            next(error);
-        }
+async function postExclusiveForm(req, res, next) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).render("exclusive", {
+            errors: errors.array(),
+        });
     }
-]
+
+    try {
+        const user = req.user;
+        await db.upgradeStatus(user.username, 'exclusive');
+        res.redirect("/");   
+    } catch(error) {
+        console.error(error);
+        next(error);
+    }
+}
 
 async function getAddMessage(req, res) {
     res.render("add");

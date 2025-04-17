@@ -1,19 +1,19 @@
 <html>
     <head>
         <title>Log in</title>
+        <link rel="stylesheet" href="/styles/login.css">
     </head>
     <body>
-        <h1>Please log in</h1>
-        <form action="/login" method="POST">
+        <div class="form-cont">
+            <h1>Log in</h1>
+            <form action="/login" method="POST">
+                <input id="username" name="username" placeholder="username" type="text">    
+                <input id="password" name="password" placeholder="password" type="password">
+                <button type="submit">Log In</button>
+            </form>
             <div>
-                <label for="username">Username</label>
-                <input id="username" name="username" placeholder="username" type="text">
+                <p>Don't have an account? Sign up <a href="/sign-up">here</a></p>
             </div>
-            <div>
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password">
-            </div>
-            <button type="submit">Log In</button>
-        </form>
+        </div>
     </body>
 </html>

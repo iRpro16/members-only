@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("node:path");
-const assetsPath = path.join(__dirname, "public");
+const assetsPath = path.join(__dirname, "/public");
 const session = require('express-session');
 const pool = require("./db/pool");
 const passport = require("passport");
