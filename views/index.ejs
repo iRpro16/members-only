@@ -8,7 +8,7 @@
   <% if (locals.user) {%>
     <h1>WELCOME BACK <%= user.username %></h1>
     <p>Your status: <%= user.status %></p>
-    <%- include('messages', {messages: messages}) %>
+    <%- include('messages', {messages: messages, user: user}) %>
     <div class="links">
       <a href="/exclusive">BECOME EXCLUSIVE?</a>
       <a href="/log-out">LOG OUT</a>

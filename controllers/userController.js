@@ -10,6 +10,7 @@ const validateUser = [
 
 async function getRenderIndex(req, res) {
     const messages = await db.getAllMessages();
+    console.log(messages)
     res.render("index", {
         user: req.user,
         messages: messages
@@ -34,7 +35,7 @@ const postExclusiveForm = [
 
             // If errors array is empty
             const user = req.user;
-            await db.upgradeStatus(user.username);
+            await db.upgradeStatus(user.username, 'exclusive');
             res.redirect("/");
         } catch(error) {
             console.error(error);
@@ -61,5 +62,5 @@ module.exports = {
     getExclusiveForm,
     postExclusiveForm,
     getAddMessage,
-    postAddMessage
+    postAddMessage,
 }

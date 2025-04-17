@@ -2,9 +2,17 @@
     <% if(messages.length > 0) { %>
         <ul>
             <% messages.forEach(message => { %>
+                <% if (user.status !== 'member') { %>
+                    <li><%= message.username %></li>
+                <% } else { %>
+                    <li>Anonymous</li>
+                <% } %>
                 <li><%= message.title %></li>
                 <li><%= message.message %></li>
                 <li><%= message.added %></li>
+                <% if (user.status === 'admin') { %>
+                    <a href="/delete/<%= message.id %>">delete</a>
+                <% } %>
             <% }); %>
         </ul>
     <% } else { %>

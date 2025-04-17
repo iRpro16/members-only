@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Admin</title>
+    </head>
+    <body>
+        <h1>Enter the secret password to become an admin:</h1>
+        <%- include("./partials/errors") %>
+        <form action="/admin" method="POST">
+            <div>
+                <label for="admin_password">Admin password</label>
+                <input id="admin_password" name="admin_password" type="password">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </body>
+</html>

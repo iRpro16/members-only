@@ -30,20 +30,30 @@ async function searchID(id) {
     return rows;
 }
 
-async function upgradeStatus(username) {
+async function upgradeStatus(username, status) {
     let query = `
         UPDATE members 
-        SET status = 'exclusive'
-        WHERE username = $1;
+        SET status = $1
+        WHERE username = $2;
     `
 
-    const { rows } = await pool.query(query, [username]);
+    const values = [status, username];
+    const { rows } = await pool.query(query, values);
     return rows;
 }
 
+// try inner join
 async function getAllMessages() {
     let query = `
-        SELECT * FROM messages;
+        SELECT 
+            members.username,
+            messages.title,
+            messages.message,
+            messages.added,
+            messages.id
+        FROM members
+        INNER JOIN messages
+            ON members.id = messages.user_id;
     `
     const { rows } = await pool.query(query);
     return rows;
@@ -59,11 +69,20 @@ async function addMessage(title, message, user_id) {
     await pool.query(query, values);
 }
 
+async function deleteMessage(id) {
+    let query = `
+        DELETE FROM messages
+        WHERE id = $1;
+    `
+    await pool.query(query, [id]);
+}
+
 module.exports = {
     insertUser,
     searchUsername,
     searchID,
     upgradeStatus,
     getAllMessages,
-    addMessage
+    addMessage,
+    deleteMessage
 }
