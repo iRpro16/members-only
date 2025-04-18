@@ -1,19 +1,23 @@
 <html>
     <head>
         <title>Add message</title>
+        <link rel="stylesheet" href="/styles/add.css">
     </head>
     <body>
-        <h1>Add a message</h1>
-        <form action="/add" method="POST">
-            <div>
-                <label for="title">Title</label>
-                <input id="title" name="title" type="text">
-            </div>
-            <div>
-                <label for="message">Message</label>
-                <textarea id="message" name="message"></textarea>
-            </div>
-            <button type="submit">Add</button>
-        </form>
+        <div class="form-cont">
+            <h1>Add a message</h1>
+            <form action="/add" method="POST">
+                <div>
+                    <label for="title">Title</label>
+                    <input id="title" name="title" type="text">
+                </div>
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <button type="submit">Add</button>
+            </form>
+            <a href="/">Return</a>
+        </div>
     </body>
 </html>

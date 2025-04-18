@@ -1,16 +1,20 @@
 <html>
     <head>
         <title>Exclusive</title>
+        <link rel="stylesheet" href="/styles/exclusive.css">
     </head>
     <body>
-        <h1>Enter the secret password to become exclusive:</h1>
-        <%- include("./partials/errors") %>
-        <form action="/exclusive" method="POST">
-            <div>
-                <label for="secret_password">Secret password</label>
-                <input id="secret_password" name="secret_password" type="password">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
+        <div class="form-cont">
+            <h1>Enter the secret password to become exclusive:</h1>
+            <%- include("./partials/errors") %>
+            <form action="/exclusive" method="POST">
+                <div>
+                    <label for="secret_password">Secret password</label>
+                    <input id="secret_password" name="secret_password" type="password">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            <a href="/">Return</a>
+        </div>
     </body>
 </html>
