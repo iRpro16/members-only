@@ -53,7 +53,8 @@ async function getAllMessages() {
             messages.id
         FROM members
         INNER JOIN messages
-            ON members.id = messages.user_id;
+            ON members.id = messages.user_id
+        ORDER BY messages.added DESC;
     `
     const { rows } = await pool.query(query);
     return rows;

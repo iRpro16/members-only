@@ -2,32 +2,40 @@
     <head>
         <meta charset="UTF-8">
         <title>Sign Up</title>
+        <link rel="stylesheet" href="/styles/sign-up.css">
     </head>
     <body>
-        <h1>Sign Up</h1>
-        <%- include("./partials/errors"); %>
-        <form action="/sign-up" method="POST">
-            <div>     
-                <label for="firstname">Firstname</label>
-                <input id="firstname" name="firstname" type="text">
-            </div>
-            <div>     
-                <label for="lastname">Lastname</label>
-                <input id="lastname" name="lastname" type="text">
-            </div>
-            <div>
-                <label for="username">Username</label>
-                <input id="username" name="username" placeholder="username" type="text" />
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password" />
-            </div>
-            <div>
-                <label for="confirm_password">Confirm password</label>
-                <input id="confirm_password" name="confirm_password" type="password">
-            </div>
-            <button type="submit">Sign Up</button> 
-        </form>
+        <div class="signup-form">
+            <h1>Sign Up</h1>
+            <%- include("./partials/errors"); %>
+            <form action="/sign-up" method="POST">
+                <div>     
+                    <label for="firstname">First name</label>
+                    <input id="firstname" name="firstname" placeholder="John" type="text">
+                    <span></span>
+                </div>
+                <div>     
+                    <label for="lastname">Last name</label>
+                    <input id="lastname" name="lastname" placeholder="Doe" type="text">
+                    <span></span>
+                </div>
+                <div>
+                    <label for="username">Username</label>
+                    <input id="username" name="username" placeholder="Username" type="text" />
+                    <span></span>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input id="password" name="password" placeholder="Password" type="password" />
+                    <span></span>
+                </div>
+                <div>
+                    <label for="confirm_password">Confirm password</label>
+                    <input id="confirm_password" name="confirm_password" placeholder="Confirm Password" type="password">
+                    <span></span>
+                </div>
+                <button type="submit">Sign Up</button> 
+            </form>
+        </div>
     </body>
 </html>

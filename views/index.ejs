@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <title>Log In</title>
+    <link rel="stylesheet" href="/styles/index.css">
   </head>
 <body>
   <% if (locals.user) {%>
-    <h1>WELCOME BACK <%= user.username %></h1>
-    <p>Your status: <%= user.status %></p>
-    <%- include('messages', {messages: messages, user: user}) %>
-    <div class="links">
-      <a href="/exclusive">BECOME EXCLUSIVE?</a>
-      <a href="/log-out">LOG OUT</a>
-      <a href="/add">ADD A MESSAGE</a>
+    <%- include('partials/header', {user: user}) %>
+    <div class="all-messages-cont">
+      <div class="all-messages">
+        <h1>All messages</h1>
+        <%- include('messages', {messages: messages, user: user}) %>
+      </div>
     </div>
   <% } else { %>
     <%- include('login') %>

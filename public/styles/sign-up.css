@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.signup-form {
+    display: flex;
+    width: 450px;
+    padding: 30px;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+h1 {
+    color: #8067D8;
+}
+
+/* Form */
+form {
+    display: flex;
+    color: rgb(161, 161, 161);
+    gap: 30px;
+    flex-direction: column;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input */
+input {
+    border: 0;
+    height: 30px;
+}
+
+input:focus {
+    outline: none;
+}
+
+span {
+    width: 100%;
+    border-top: 1px solid grey;
+}
+
+/* Button */
+button {
+    height: 40px;
+    background-color: #8067D8;
+    border: none;
+    border-radius: 10px;
+    font-size: larger;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #785dda;
+}
+
+/* Errors */
+.errors-list {
+    padding-left: 0;
+    margin-left: 0;
+    list-style-position: inside;   
+}

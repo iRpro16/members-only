@@ -1,20 +1,29 @@
 <div class="messages">
     <% if(messages.length > 0) { %>
-        <ul>
-            <% messages.forEach(message => { %>
-                <% if (user.status !== 'member') { %>
-                    <li><%= message.username %></li>
-                <% } else { %>
-                    <li>Anonymous</li>
-                <% } %>
-                <li><%= message.title %></li>
-                <li><%= message.message %></li>
-                <li><%= message.added %></li>
-                <% if (user.status === 'admin') { %>
-                    <a href="/delete/<%= message.id %>">delete</a>
-                <% } %>
-            <% }); %>
-        </ul>
+        <% messages.forEach(message => { %>
+            <div class="message">
+                <div class="upper">
+                    <h3><%= message.title %></h3>
+                    <div class="status-date-cont"> 
+                        <% if (user.status !== 'member') { %>
+                            <h3><%= message.username %></h3>
+                        <% } else { %>
+                            <h3>Anonymous</h3>
+                        <% } %>
+                        <p>•</p> 
+                        <p><%= message.added %></p>
+                    </div>
+                </div>
+                <div class="lower">
+                    <p><%= message.message %></p>
+                    <% if (user.status === 'admin') { %>
+                        <a href="/delete/<%= message.id %>">delete</a>
+                    <% } else { %>
+                        <div></div>
+                    <% } %>
+                </div>
+            </div>
+        <% }) %>
     <% } else { %>
         <h1>Be the first to post a message!</h1>
     <% } %> 
