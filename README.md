@@ -1,7 +1,6 @@
 # Messages App
 
-This project is part of The Odin Project curriculum. It involves creating a profile and logging in to post messages for users to see. Regular members can't see who posted what,\
-but if you enter a secret password, you can gain access to the user behind the message.
+This project is part of The Odin Project curriculum. It involves creating a profile and logging in to post messages for users to see. Regular members can't see who posted what, but if you enter a secret password, you can gain access to the user behind the message.
 
 ## Features
 * Log-in user authentication using passportjs.
