@@ -35,6 +35,6 @@ app.use(indexRouter);
 app.use(signupRouter);
 app.use(loginRouter);
 
-app.listen(3000, () => {
+app.listen(8000,'0.0.0.0', () => {
     console.log("Listening to on PORT: 3000");
 })
