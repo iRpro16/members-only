@@ -33,6 +33,11 @@ button {
     font-size: large;
 }
 
+button:hover {
+    cursor: pointer;
+    background-color: #7f67d8ce;
+}
+
 .form-cont {
     display: flex;
     flex-direction: column;

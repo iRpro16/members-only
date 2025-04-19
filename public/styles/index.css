@@ -77,6 +77,11 @@ header > div {
     max-height: 70vh;
 }
 
+.messages > div > p {
+    font-size: 1.4em;
+    color: gray;
+}
+
 .message {
     display: flex;
     flex-direction: column;
@@ -122,7 +127,7 @@ header > div {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: black;
+    color: red;
 }
 
 .lower > a:hover {
