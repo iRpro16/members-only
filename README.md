@@ -41,11 +41,11 @@ npm start
 
 ## Challenges and solutions:
 ### Modularity
-Challenge: Making code more modular with express and passport./
+Challenge: Making code more modular with express and passport.\
 Solution: Putting the passport config in a "config.js" file and then exporting it as a function with the "passport" argument.
 
 ### Express session
-Challenge: Understanding express-session./
+Challenge: Understanding express-session.\
 Solution: Reading lots of documentation and watching videos.
 
 ## Future Improvements
