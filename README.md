@@ -1,7 +1,6 @@
 # Messages App
 
-This project is part of The Odin Project curriculum. It involves creating a profile and logging in to post messages for users to see. Regular members can't see who posted what,\
-but if you enter a secret password, you can gain access to the user behind the message.
+This project is part of The Odin Project curriculum. It involves creating a profile and logging in to post messages for users to see. Regular members can't see who posted what, but if you enter a secret password, you can gain access to the user behind the message.
 
 ## Features
 * Log-in user authentication using passportjs.
@@ -42,11 +41,11 @@ npm start
 
 ## Challenges and solutions:
 ### Modularity
-Challenge: Making code more modular with express and passport.
+Challenge: Making code more modular with express and passport.\
 Solution: Putting the passport config in a "config.js" file and then exporting it as a function with the "passport" argument.
 
 ### Express session
-Challenge: Understanding express-session.
+Challenge: Understanding express-session.\
 Solution: Reading lots of documentation and watching videos.
 
 ## Future Improvements
