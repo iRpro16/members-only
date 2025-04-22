@@ -36,5 +36,5 @@ app.use(signupRouter);
 app.use(loginRouter);
 
 app.listen(8000,'0.0.0.0', () => {
-    console.log("Listening to on PORT: 3000");
+    console.log("Listening to on PORT: 8000");
 })

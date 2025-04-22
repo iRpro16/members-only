@@ -10,7 +10,10 @@
     <%- include('partials/header', {user: user}) %>
     <div class="all-messages-cont">
       <div class="all-messages">
-        <h1>All messages</h1>
+        <div class="add-messages">
+          <h1>All messages</h1>
+          <a href="/add">Add</a>
+        </div>
         <%- include('messages', {messages: messages, user: user}) %>
       </div>
     </div>
